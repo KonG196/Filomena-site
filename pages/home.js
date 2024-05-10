@@ -1,11 +1,7 @@
 import { createClient } from 'contentful'
-import RecipeCard from '../components/RecipeCard'
 import Paragraph from '../components/Paragraph'
 
-
-
 export async function getStaticProps() {
-
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -32,10 +28,9 @@ export default function Home({paragraphs}) {
 
   return (
     <div className="container">
-
+      <h1>Філомена</h1>
       <main>
         <div className="paragraph-class">
-
         {sortedParagraphs.map(paragraph => (
           <Paragraph key={paragraph.sys.id} paragraph={paragraph}/>
         ))}
@@ -44,6 +39,9 @@ export default function Home({paragraphs}) {
       </main>
 
       <style jsx>{`
+        .container h1{
+          text-align: center;
+        }
         @media (max-width: 430px) {
           
         }

@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header>
       <div>
-        <Link legacyBehavior href="/">
+        <Link legacyBehavior href="/home">
           <a>
             <img src="/logo.png" alt="Логотип" />
           </a>
