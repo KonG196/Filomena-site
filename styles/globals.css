@@ -11,6 +11,18 @@ body {
   flex-direction: column;
 }
 
+.page-content {
+  max-width: 1600px;
+  margin: 20px auto 80px;
+  padding: 0 100px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/*////////////////////////////////////////////
+Header
+*/
 header {
   background-color: #fdf8f1;
   font-weight: 500;
@@ -19,21 +31,23 @@ header {
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
   border-bottom: 4px solid #2e2a1e;
   border-top: 4px solid #2e2a1e;
-  margin-top: 10px;
+  margin-top: 5px;
   
 }
 
 header img { 
   width: auto;
-  height: 100px;
+  max-height: 90px;
   margin-left: 70px;
 }
 
-.header-donate-block {
-  padding: 20px;
+.header-donate-block button {
+  padding: 17.5px;
+  font-size: 22px;
+  font-weight: 500;
+  font-family: "CoFo Sans";
   background-color: #fdf8f1;
   border-radius: 15px;
   border: 4px solid #2e2a1e;
@@ -45,7 +59,7 @@ header img {
   text-decoration: none;
 }
 
-.header-donate-block:hover {
+.header-donate-block:hover button {
   background-color: #2e2a1e; 
 }
 
@@ -86,7 +100,110 @@ header h2 {
   font-size: 1.2em;
   font-weight: 400;
 }
+/*
+Header
+////////////////////////////////////////////*/
 
+
+
+/*////////////////////////////////////////////
+Donation button and window
+*/
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 0; 
+  font-family: "CoFo Sans";
+  transition: opacity 0.4s ease; 
+  pointer-events: none; 
+  
+}
+
+.modal-content {
+  border: 3px solid #2e2a1e;
+  border-radius: 15px;
+  background-color: #fdf8f1;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal h2 {
+  font-size: 28px;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.modal h3 {
+  font-size: 24px;
+}
+
+.modal p {
+  font-size: 22px;
+}
+
+.modal button {
+  background-color: #fdf8f1;
+  color: #2e2a1e;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 3px solid #2e2a1e;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "CoFo Sans";
+}
+
+.modal button:hover {
+  background-color: #2e2a1e;
+  color: #fdf8f1;
+}
+
+.modal.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modalOverlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/*
+Donation button and window
+////////////////////////////////////////////*/
+
+
+
+/*////////////////////////////////////////////
+Footer
+*/
 footer {
   background: #111;
   color: #bbb;
@@ -97,16 +214,20 @@ footer {
 footer p{
   font-size: medium;
 }
-
-.page-content {
-  max-width: 1600px;
-  margin: 20px auto 80px;
-  padding: 0 100px;
-  width: 100%;
-  box-sizing: border-box;
-}
+/*
+Footer
+////////////////////////////////////////////*/
 
 
+
+
+
+
+
+
+/*////////////////////////////////////////////
+Adaptive design
+*/
 @media (max-width: 1400px) {
 
 }
@@ -131,11 +252,18 @@ footer p{
     margin-left: 35px;
   }
 
-  .header-donate-block{
+  .header-donate-block button{
     padding: 15px;
+    font-size: 16px;
+    font-family: "CoFo Sans";
     border: 3px solid #2e2a1e;
     border-radius: 10px; 
   }
 
   
 }
+
+
+/*
+Adaptive Design
+////////////////////////////////////////////*/

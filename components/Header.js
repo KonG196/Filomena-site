@@ -1,12 +1,24 @@
+import React, { useState } from 'react';
 import Link from 'next/link';
+import Modal from './Modal';
 
 const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <header>
       <div>
         <Link legacyBehavior href="/home">
           <a>
-            <img src="/logo.png" alt="Логотип" />
+            <img src="/logo2.png" alt="Логотип" />
           </a>
         </Link>
       </div>
@@ -23,19 +35,18 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link legacyBehavior href="/contacts" >
+            <Link legacyBehavior href="/contacts">
               <a>Контакти</a>
             </Link>
           </li>
         </ul>
       </nav>
-      <div className='header-donate-block'>
-        <Link legacyBehavior href="/">
-          <a>
-            Задонатити
-          </a>
-        </Link>
+      <div className="header-donate-block">
+        <button onClick={openModal}>
+          <a>Задонатити</a>
+        </button>
       </div>
+      <Modal onClose={closeModal} isModalOpen={isModalOpen} />
     </header>
   );
 };
