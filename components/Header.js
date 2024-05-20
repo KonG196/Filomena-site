@@ -17,7 +17,7 @@ const Header = () => {
     <header>
       <div>
         <Link legacyBehavior href="/home">
-          <a>
+          <a className='img_link'>
             <img src="/logo2.png" alt="Логотип" />
           </a>
         </Link>

@@ -17,10 +17,18 @@ export async function getStaticProps() {
 }
 
 export default function Contacts({ contacts }) {
+  console.log(contacts)
   return (
     <div className="contacts-list">
       <h1>Контакти</h1>
-      <div className="donationInfo">
+      
+      <div className='contacts'>
+      {contacts.map(contact => (
+        <Contact key={contact.sys.id} contact={contact}/>
+      ))}
+      </div>
+
+      <div className="contactsDonationInfo">
         <h3>Отримувач</h3>
         <p>КОНЬОВСЬКИЙ ІГОР МИРОНОВИЧ</p>
         <h3>IBAN рахунок</h3>
@@ -28,23 +36,18 @@ export default function Contacts({ contacts }) {
         <h3>РНОКПП/ЄДРПОУ</h3>
         <p>44817809</p>
         <h3>Призначення платежу</h3>
-        <p>Поповнення рахунку, КОНЬОВСЬКИЙ ІГОР МИРОНОВИЧ</p>
-      </div>
-      <div className='contacts'>
-      {contacts.map(contact => (
-        <Contact key={contact.sys.id} contact={contact}/>
-      ))}
+        <p>Благодійний внесок</p>
       </div>
       <style jsx>{`
         .contacts-list h1{
           text-align: center;
         }
-        .donationInfo{
+        .contactsDonationInfo{
           font-size: 18px;
           border: 4px solid #2e2a1e;
           padding: 40px;
           border-radius: 15px;
-          margin-bottom: 60px;
+          margin-top: 60px;
         }
         .contacts{
           display: grid;

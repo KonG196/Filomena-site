@@ -1,6 +1,6 @@
 import React from 'react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import styles from '../styles/main-page.module.css';
+
 
 export default function Paragraph({ paragraph }) {
     const { title, text_field } = paragraph.fields

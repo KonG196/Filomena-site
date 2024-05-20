@@ -6,7 +6,7 @@ export default function Contact({ contact }) {
   return (
     <div className="contact">
       <div>
-        <h3>Повна назва:</h3>
+        <h3>Наша Громадська Організація:</h3>
         <p>{fullName}</p>
       </div>
 

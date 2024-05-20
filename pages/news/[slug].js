@@ -2,6 +2,7 @@ import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Image from 'next/image'
 import Link from 'next/link'
+import styles from '../../styles/slug.module.css';
 
 
 const client = createClient({
@@ -10,8 +11,8 @@ const client = createClient({
 })
 
 export const getStaticPaths = async () => {
-  const res = await client.getEntries({ 
-    content_type: "recipe" 
+  const res = await client.getEntries({
+    content_type: "recipe"
   })
 
   const paths = res.items.map(item => {
@@ -39,60 +40,51 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export default function RecipeDetails({ recipe }) {
-  const {thumbnail, title, shortDescr, method } = recipe.fields
-  console.log(recipe)
+  const { thumbnail, title, shortDescr, method } = recipe.fields;
+  console.log(recipe);
 
   let { width, height } = thumbnail.fields.file.details.image;
-  if (width > 900 & width < 1400) {
-      width /= 2;
-      height /= 2;
-  }else if(width > 1400){
-      width /=3 ;
-      height /=3 ;
+  if (width > 900 && width < 1400) {
+    width /= 2;
+    height /= 2;
+  } else if (width > 1400) {
+    width /= 3;
+    height /= 3;
   }
 
   return (
     <div>
-      <div className="banner">
+      <div className={styles.banner}>
         <Link legacyBehavior href="/news">
           <a>
             <Image src={'/arrow.png'}
-            width={45}
-            height={45}
-            style={{ position:'absolute',marginLeft:'-150px' }}
+              width={45}
+              height={45}
+              style={{ position: 'absolute', marginLeft: '-150px', marginTop: '25px'
+               }}
             />
           </a>
         </Link>
-        <Image 
-          src={'https:' + thumbnail.fields.file.url}
-          width={width}
-          height={height}
-          style={{ borderRadius: '15px', overflow: 'hidden', border: '4px solid #2e2a1e'}}
-        />
-        <h2>{ title }</h2>
-      </div>
-        
-      <div className="method">
-        <div>{documentToReactComponents(method)}</div>
+        <div className={styles.container}>
+          <div className={styles.image}>
+            <Image
+              src={'https:' + thumbnail.fields.file.url}
+              width={width}
+              height={height}
+              style={{ borderRadius: '15px', overflow: 'hidden', border: '4px solid #2e2a1e' }}
+            />
+          </div>
+          <div className={styles.title}>
+            <h2>{title}</h2>
+          </div>
+        </div>
+
+
       </div>
 
-      <style jsx>{`
-        h2,h3 {
-          text-transform: uppercase;
-        }
-        .banner h2 {
-          margin: 0;
-          background: #fff;
-          display: inline-block;
-          padding: 20px;
-          position: relative;
-          top: -60px;
-          left: -10px;
-          transform: rotateZ(-1deg);
-          border-radius: 15px;
-          box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-        }
-      `}</style>
+      <div className={styles.method}>
+        <div className='news_descr'>{documentToReactComponents(method)}</div>
+      </div>
     </div>
   )
 }
