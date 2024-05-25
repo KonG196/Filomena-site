@@ -14,15 +14,17 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className="header">
+      <a href="#" className="header__icon" id="header__icon"></a>
       <div>
         <Link legacyBehavior href="/home">
-          <a className='img_link'>
+          <a className="img_link">
             <img src="/logo2.png" alt="Логотип" />
           </a>
         </Link>
       </div>
-      <nav>
+      <nav className="menu">
+        <a href="" className='header-text-mobile'>Філомена</a>
         <ul>
           <li>
             <Link legacyBehavior href="/home">
@@ -39,13 +41,16 @@ const Header = () => {
               <a>Контакти</a>
             </Link>
           </li>
+         
         </ul>
       </nav>
+
       <div className="header-donate-block">
-        <button onClick={openModal}>
-          <a>Задонатити</a>
-        </button>
-      </div>
+              <button onClick={openModal}>
+                <a>Задонатити</a>
+              </button>
+            </div>
+      
       <Modal onClose={closeModal} isModalOpen={isModalOpen} />
     </header>
   );

@@ -26,13 +26,17 @@ export default function Paragraph({ paragraph }) {
               left: -10px;
             }
             .info {
-              width:56vw;
+              max-width:56vw;
+              width:100%;
             }
-            @media (max-width: 1400px) {
-              .info {
-                width: 70vw;
+            @media only screen and (max-width: 768px) {
+
+              .info{
+                max-width: 80vh;
+                width: 100%;
               }
             }
+
 
             
 

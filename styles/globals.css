@@ -3,11 +3,19 @@ body {
   background-color: #fdf8f1;
   margin: 0;
   font-size: 1.3em;
+  min-height: 100vh;
 }
 
 .layout {
   min-height: 100vh;
   display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.layout_pusher{
+  min-height: 100vh;
+  display: flex;
+  flex: 1;
   flex-direction: column;
 }
 
@@ -17,9 +25,11 @@ body {
   padding: 0 100px;
   width: 100%;
   box-sizing: border-box;
+  flex: 1;
 }
 
 h4{
+  width: 30%;
   font-size: 24px;
 }
 
@@ -28,6 +38,7 @@ h4{
 Header
 */
 header {
+  position: static;
   background-color: #fdf8f1;
   font-weight: 500;
   font-size: 22px;
@@ -47,6 +58,13 @@ header img {
  
 }
 
+.header__icon {
+  display: none;
+}
+
+.header-text-mobile{
+  display: none;
+}
 header .img_link{
   margin-left: 50px;
 }
@@ -95,7 +113,9 @@ header nav ul li a {
   transition: color 0.3s; 
 
 }
-
+header nav{
+  margin-left: 15px;
+}
 header nav ul li a:hover {
   color: #ffca28;
 }
@@ -217,10 +237,10 @@ Footer
 */
 footer {
   background: #111;
-  color: #bbb;
+  color: #fdf8f1;
   padding: 20px;
   text-align: center;
-  margin-top: auto
+  margin-top: auto;
 }
 footer p{
   font-size: medium;
@@ -239,10 +259,6 @@ Footer
 /*////////////////////////////////////////////
 Adaptive design
 */
-@media (max-width: 1400px) {
-
-}
-
 @media (max-width: 1080px) {
 
   body{
@@ -254,15 +270,22 @@ Adaptive design
     border-bottom: 3px solid #2e2a1e;
     border-top: 3px solid #2e2a1e;
   }
+
+  header .img_link{
+    margin-left: 25px;
+  }
+
   header ul {
   gap: 40px;
   }
   header img{
     width: auto;
     height: 75px;
-    margin-left: 35px;
+    margin-left: 0px;
   }
-
+  header nav{
+    margin-left: 50px;
+  }
   .header-donate-block button{
     padding: 15px;
     font-size: 16px;
@@ -274,6 +297,169 @@ Adaptive design
   
 }
 
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+  .site-pusher,
+  .site-container {
+    height: 100%;
+  }
+
+  .site-container {
+    overflow: hidden;
+  }
+
+  .site-pusher {
+    transition-duration: 0.3s;
+    transform: translateX(-50px);
+  }
+
+  .site-content {
+    position: absolute;
+    top: 66px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  header {
+    position: static;
+  }
+  header img{
+    margin-left: 75px;
+  }
+  .header__icon {
+    display: block;
+    position: relative;
+    float: left;
+    width: 50px;
+    height: 66px;
+    cursor: pointer;
+  }
+
+  .header__icon::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 1rem;
+    height: 0;
+    top: 16px;
+    left: 35px;
+
+    box-shadow: 0 9px 0 2px #2e2a1e, 0 16px 0 2px #2e2a1e, 0 23px 0 2px #2e2a1e;
+  }
+
+  nav {
+    border: 3px solid #2e2a1e;
+    margin: 15px;
+    border-radius: 15px;
+    position: fixed;
+    padding-top: 12vh;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fdf8f1;
+    width: 250px;
+    transform: translateX(-315px);
+    transition: transform 0.3s ease;
+  }
+
+  nav ul {
+    display: flex; /* Розміщення елементів у рядок */
+    flex-direction: column; /* Вертикальний рядок */
+    padding: 0;
+    margin: 0;
+    
+  }
+
+  nav ul li {
+    margin-top: 10vh;
+    margin-left: 45px;
+    margin-right: 30px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    border: 3px solid #2e2a1e;
+    border-radius: 10px;
+
+  }
+
+  .header-text-mobile{
+    display: block;
+    font-size: 24px;
+    margin-left: 10px;
+    font-weight: 800;
+  }
+
+  .header-donate-block button {
+    padding:  15px 12.5px;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 5px;
+    font-weight: 500;
+    font-family: "CoFo Sans";
+    background-color: #fdf8f1;
+    border-radius: 10px;
+    border: 3px solid #2e2a1e;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .with--sidebar nav {
+    transform: translateX(-68px);
+  }
+
+  h1{
+    font-size: 22px;
+  }
+  p{
+    font-size: 16px;
+  }
+
+  .page-content {
+    margin: 20px auto 80px;
+    padding: 0 30px;
+    width: 100%;
+    box-sizing: border-box;
+    flex: 1;
+  }
+
+  .with--sidebar .site-cache {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    
+  }
+  .with--sidebar {
+    overflow: hidden;
+  }
+
+
+
+
+
+
+
+
+  footer {
+    background: #111;
+    color: #fdf8f1;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+  }
+  footer p{
+    font-size: small;
+  }
+}
 
 /*
 Adaptive Design
