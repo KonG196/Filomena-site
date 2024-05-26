@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header className="header">
       <a href="#" className="header__icon" id="header__icon"></a>
-      <div>
+      <div className='logo'>
         <Link legacyBehavior href="/home">
           <a className="img_link">
             <img src="/logo2.png" alt="Логотип" />

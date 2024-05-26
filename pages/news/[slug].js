@@ -53,29 +53,27 @@ export default function RecipeDetails({ recipe }) {
   }
 
   return (
-    <div>
+    <div className={styles.content_block}>
       <div className={styles.banner}>
+        
+
+        <div className={styles.container}>
         <Link legacyBehavior href="/news">
           <a>
-            <Image src={'/arrow.png'}
-              width={45}
-              height={45}
-              style={{ position: 'absolute', marginLeft: '-150px', marginTop: '25px'
-               }}
-            />
+            <img src={'/arrow.png'} alt="" className={styles.arrow}/>
           </a>
         </Link>
-        <div className={styles.container}>
           <div className={styles.image}>
             <Image
               src={'https:' + thumbnail.fields.file.url}
               width={width}
               height={height}
-              style={{ borderRadius: '15px', overflow: 'hidden', border: '4px solid #2e2a1e' }}
+              style={{}}
             />
+            <h2>{title}</h2>
           </div>
           <div className={styles.title}>
-            <h2>{title}</h2>
+
           </div>
         </div>
 
@@ -83,8 +81,9 @@ export default function RecipeDetails({ recipe }) {
       </div>
 
       <div className={styles.method}>
-        <div className='news_descr'>{documentToReactComponents(method)}</div>
+        <div className={styles.news_descr}>{documentToReactComponents(method)}</div>
       </div>
+
     </div>
   )
 }

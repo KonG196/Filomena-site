@@ -7,27 +7,26 @@ export default function Layout({ children }) {
     const siteCache = document.getElementById('site-cache');
     const body = document.body;
 
+
     const toggleSidebar = (e) => {
       e.preventDefault();
       body.classList.toggle('with--sidebar');
-
     };
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const sidebarLinks = document.querySelectorAll('.menu a');
-    
-      sidebarLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          body.classList.remove('with--sidebar');
-        });
-      });
-    });
 
     const removeSidebar = () => {
       body.classList.remove('with--sidebar');
- 
     };
 
+    const sidebarLinks = document.querySelectorAll('.menu a');
+
+    sidebarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Закриття сайдбару при кліку на посилання
+      removeSidebar();
+    });
+  });
+
+    
     if (headerIcon) {
       headerIcon.addEventListener('click', toggleSidebar);
     }

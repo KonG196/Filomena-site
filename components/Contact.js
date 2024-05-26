@@ -45,6 +45,16 @@ export default function Contact({ contact }) {
           padding: 40px;
           border-radius: 15px;
         }
+        @media only screen and (max-width: 768px) {
+          .contact{
+            font-size: 16px;
+            padding: 20px
+          }
+          .contact p{
+            font-size: 14px;
+          }
+        }
+
       `}</style>
     </div>
   )

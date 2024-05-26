@@ -54,6 +54,26 @@ export default function Contacts({ contacts }) {
           grid-template-columns: 1fr 1fr;
           grid-gap: 20px 60px;
         }
+        @media only screen and (max-width: 768px) {
+
+          .contactsDonationInfo{
+            padding: 20px;
+            margin-top: 30px;
+            font-size:16px;
+          }
+          .contacts {
+            /* Змінюємо сітку на одну колонку */
+            grid-template-columns: 1fr;
+            grid-gap: 30px ;
+          }
+          .contacts-list h1{
+            font-size: 24px;
+            margin-top: 0;
+          }
+          .contactsDonationInfo p{
+            font-size: 14px
+
+        }
       `}</style>
     </div>
   )
