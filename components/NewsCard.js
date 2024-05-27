@@ -23,30 +23,33 @@ export default function NewsCard({ recipe }) {
   return (
     <div className={styles.card} style={{ width: `${cardWidth}px` }}>
       <figure className={`${styles.snip1369} //${styles.hover}`}>
+        
         <img
           src={'https:' + thumbnail.fields.file.url}
           onLoad={() => setImageLoaded(true)}
           style={{ display: imageLoaded ? 'block' : 'none' }}
           alt="Thumbnail"
         />
-        <div className={styles.image}>
-        <img
-          src={'https:' + thumbnail.fields.file.url}
-          onLoad={() => setImageLoaded(true)}
-          style={{ display: imageLoaded ? 'block' : 'none' }}
-          alt="Thumbnail"
-        />
-          <div className={styles.loader}></div>
-        </div>
         <figcaption>
           <h3>{title}</h3>
-          <p>{shortDescr}</p>
+          <p>{shortDescr + "вау вау вау вау просто вау вау вау"}</p>
           <h5>{date}</h5>
         </figcaption>
         <span className={styles.readMore}>
           Читати далі <i className={styles.arrow}>→</i>
         </span>
         <a href={'/news/' + slug}></a>
+
+        <div className={styles.image}>
+          <img
+            src={'https:' + thumbnail.fields.file.url}
+            onLoad={() => setImageLoaded(true)}
+            style={{ display: imageLoaded ? 'block' : 'none' }}
+            alt="Thumbnail"
+          />
+
+        </div>
+
       </figure>
     </div>
   );
