@@ -89,7 +89,7 @@
   text-align: end;
   margin-top: 5px;
   margin-bottom: 10px;
-  transform: translateY(7px);
+  transform: translateY(3px);
 }
 
 .snip1369 h3 {
@@ -185,17 +185,32 @@
 
 
 @media (max-width: 768px) {
+
   .snip1369 figcaption {
-    transform: translateY(130px);
+    position: absolute;
+    transform: translateY(0px);
+    bottom: -77px;
+    left: 20px;
+    right: 20px;
+    border-bottom: 2px solid #2e2a1e;
+    z-index: 1;
+  }
+
+  .snip1369:hover .readMore,
+  .snip1369.hover .readMore{
+  
+    opacity: 0;
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
   }
 
   .snip1369 .image {
     bottom: 60px;
   }
-
+  
   .snip1369:hover .image,
   .snip1369.hover .image {
-    bottom: 20vh;
+    bottom: 60px;
   }
 
 }

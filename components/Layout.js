@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import Header from './Header';
 
-export default function Layout({ children }) {
+export default function Layout({ children, locale }) {
   useEffect(() => {
     const headerIcon = document.getElementById('header__icon');
     const siteCache = document.getElementById('site-cache');
     const body = document.body;
-
 
     const toggleSidebar = (e) => {
       e.preventDefault();
@@ -20,13 +19,11 @@ export default function Layout({ children }) {
     const sidebarLinks = document.querySelectorAll('.menu a');
 
     sidebarLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      // Закриття сайдбару при кліку на посилання
-      removeSidebar();
+      link.addEventListener('click', () => {
+        removeSidebar();
+      });
     });
-  });
 
-    
     if (headerIcon) {
       headerIcon.addEventListener('click', toggleSidebar);
     }
@@ -46,6 +43,19 @@ export default function Layout({ children }) {
     };
   }, []);
 
+  const getFooterText = (locale) => {
+    switch (locale) {
+      case 'en':
+        return 'Konyovsky Ihor, Public Organization "Filomena". All rights reserved.';
+      case 'uk':
+        return 'Коньовський Ігор, Громадська організація "Філомена". Усі права захищено.';
+      default:
+        return '';
+    }
+  };
+
+  const footerText = getFooterText(locale);
+
   return (
     <div className="layout">
       <div className="layout_pusher">
@@ -55,7 +65,7 @@ export default function Layout({ children }) {
         </div>
         <div className="site-cache" id="site-cache"></div>
         <footer>
-          <p>Коньовський Ігор, Громадська організація "Філомена". Усі права захищено.</p>
+          <p>{footerText}</p>
         </footer>
       </div>
     </div>

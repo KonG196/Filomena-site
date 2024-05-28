@@ -36,10 +36,6 @@ export default function Paragraph({ paragraph }) {
                 width: 100%;
               }
             }
-
-
-            
-
             }
           `}</style>
         </div>

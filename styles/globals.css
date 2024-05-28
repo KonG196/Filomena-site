@@ -34,6 +34,9 @@ h4{
 }
 
 
+
+
+
 /*////////////////////////////////////////////
 Header
 */
@@ -127,6 +130,45 @@ header h2 {
 header h2 {
   font-size: 1.2em;
   font-weight: 400;
+}
+
+
+
+.language-switcher {
+  position: absolute;
+  top: 35px;
+  left: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.language-switcher a {
+  border: 2px solid #2e2a1e;
+  border-radius: 10px;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #2e2a1e;
+  font-weight: 500;
+  font-family: "CoFo Sans";
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.language-switcher a.active {
+  background-color: #2e2a1e;
+  color: #fdf8f1;
+}
+
+.language-switcher a:not(.active):hover {
+  color: #fdf8f1;
+  background-color: #544c36;
+}
+
+
+.language-switcher-mobile{
+  display: none;
 }
 /*
 Header
@@ -226,43 +268,13 @@ Donation button and window
 }
 
 
-@media only screen and (max-width: 768px) {
-  .modal h2 {
-    font-size: 18px;
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  .modal h3 {
-    font-size: 18px;
-  }
 
-  .modal p{
-    font-size: 16px;
-    word-wrap: break-word;
-  }
-  .donationInfo{
-    width: 60vw;
-  }
-  .modal-content {
-    border: 3px solid #2e2a1e;
-    border-radius: 15px;
-    background-color: #fdf8f1;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: left;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .modal button {
-    padding: 10px 20px;
-    font-size: 18px;
 
-  }
-}
+
+
+
+
+
 
 
 /*
@@ -338,10 +350,151 @@ Adaptive design
 
 
 
+@media only screen and (max-width: 1440px){
+  .language-switcher {
+
+    top: 40px;
+    left: 5px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 10px;
+  }
+
+  .language-switcher a{
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+
+@media only screen and (max-width: 1200px){
+  .language-switcher {
+
+    
+    display: flex;
+    top: 45px;
+    left: 0;
+    gap: 10px;
+    align-items: center;
+    margin-left: 5px;
+  }
+
+  .language-switcher a{
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .logo{
+    transform: translateX(50px);
+  }
+
+}
+
+@media only screen and (max-width: 1100px){
+  .language-switcher {
+    display: flex;
+    gap: 10px;
+    top: 35px;
+    left: 0;
+    align-items: center;
+    margin-left: 5px;
+  }
+
+  .language-switcher a{
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+
+  
+}
+
+
+
+
 
 
 
 @media only screen and (max-width: 768px) {
+  .logo{
+    transform: translateX(0);
+  }
+  .modal h2 {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .modal h3 {
+    font-size: 18px;
+  }
+
+  .modal p{
+    font-size: 16px;
+    word-wrap: break-word;
+  }
+  .donationInfo{
+    width: 60vw;
+  }
+  .modal-content {
+    border: 3px solid #2e2a1e;
+    border-radius: 15px;
+    background-color: #fdf8f1;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal button {
+    padding: 10px 20px;
+    font-size: 18px;
+
+  }
+
+
+  .language-switcher-mobile{
+    display: block;
+    margin-left: 15px;
+  }
+ 
+
+  .language-switcher-mobile a {
+    border: 2px solid #2e2a1e;
+    border-radius: 10px;
+
+    margin: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #2e2a1e;
+    font-weight: 500;
+    font-family: "CoFo Sans";
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .language-switcher-mobile a.active {
+    background-color: #2e2a1e;
+    color: #fdf8f1;
+  }
+  
+  .language-switcher-mobile a:not(.active):hover {
+    color: #fdf8f1;
+    background-color: #544c36;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  
+
+  .logo{
+    transform: translateX(0);
+  }
   .site-pusher,
   .site-container {
     height: 100%;
@@ -361,13 +514,14 @@ Adaptive design
   header {
     position: static;
   }
- .logo a{
-    margin-left: 90px;
+ .logo{
+    margin-left: 35px;
   }
   .header__icon {
     display: block;
     position: relative;
-   transform: translateX(25px);
+
+   margin-left: 25px;
     width: 50px;
     height: 66px;
     cursor: pointer;
@@ -427,6 +581,11 @@ Adaptive design
     font-weight: 800;
   }
 
+  .language-switcher{
+    display: none;
+  }
+
+
   .header-donate-block button {
     width: fit-content;
     padding:  12.5px 10px;
@@ -476,8 +635,45 @@ Adaptive design
 
 
 
+@media only screen and (max-width: 1440px){
+  .language-switcher {
+
+    top: 40px;
+    left: 5px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 10px;
+  }
+
+  .language-switcher a{
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
 
 
+@media only screen and (max-width: 1200px){
+  .language-switcher {
+    display: flex;
+    top: 45px;
+    left: 0;
+    gap: 10px;
+    align-items: center;
+    margin-left: 5px;
+  }
+
+  .language-switcher a{
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+}
+
+
+  .language-switcher{
+    display: none;
+  }
 
   footer {
     background: #111;
@@ -490,6 +686,13 @@ Adaptive design
     font-size: small;
   }
 }
+
+
+
+
+
+
+
 
 /*
 Adaptive Design

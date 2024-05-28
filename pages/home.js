@@ -1,22 +1,29 @@
 import { createClient } from 'contentful'
 import Paragraph from '../components/Paragraph'
 
-export async function getStaticProps() {
+export async function getStaticProps( {locale} ) {
+
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   })
 
-  const res = await client.getEntries({ content_type: "mainPageParagraph" })
+
+
+  const res = await client.getEntries({ 
+    content_type: "mainPageParagraph", 
+    locale
+  })
 
   return {
     props: {
       paragraphs: res.items,
+      locale,
     }
   }
 }
 
-export default function Home({paragraphs}) {
+export default function Home({paragraphs, locale}) {
   console.log(paragraphs)
 
   const sortedParagraphs = [...paragraphs];
@@ -28,7 +35,7 @@ export default function Home({paragraphs}) {
 
   return (
     <div className="container">
-      <h1>Філомена</h1>
+      <h1>{locale === 'en' ? 'Philomena' : 'Філомена'}</h1>
       <main>
         <div className="paragraph-class">
         {sortedParagraphs.map(paragraph => (
