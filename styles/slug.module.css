@@ -65,6 +65,12 @@
     display: none;
 }
 
+.date{
+    text-align: end;
+    font-size: 22px;
+    font-style: italic;
+}
+
 
 @media only screen and (max-width: 768px) {
 
@@ -106,5 +112,11 @@
         border-radius: 10px;
         overflow: hidden;
         border: 3px solid #2e2a1e;
+    }
+
+    .date{
+        font-weight: 700;
+        font-style: italic;
+        font-size: 16px;
     }
 }

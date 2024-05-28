@@ -32,7 +32,7 @@ export default function NewsCard({ recipe }) {
         />
         <figcaption>
           <h3>{title}</h3>
-          <p>{shortDescr + "вау вау вау вау просто вау вау вау"}</p>
+          <p>{shortDescr}</p>
           <h5>{date}</h5>
         </figcaption>
         <span className={styles.readMore}>

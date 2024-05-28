@@ -40,7 +40,7 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export default function RecipeDetails({ recipe }) {
-  const { thumbnail, title, shortDescr, method } = recipe.fields;
+  const { thumbnail, title, shortDescr, method, date } = recipe.fields;
   console.log(recipe);
 
   let { width, height } = thumbnail.fields.file.details.image;
@@ -72,6 +72,7 @@ export default function RecipeDetails({ recipe }) {
             />
             <h2>{title}</h2>
           </div>
+          
         </div>
 
 
@@ -82,6 +83,7 @@ export default function RecipeDetails({ recipe }) {
         <div className={styles.news_descr}>{documentToReactComponents(method)}</div>
       </div>
 
+      <h4 className={styles.date}>{date}</h4>
     </div>
   )
 }
