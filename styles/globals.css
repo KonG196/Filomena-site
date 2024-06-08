@@ -68,9 +68,7 @@ header img {
 .header-text-mobile{
   display: none;
 }
-header .img_link{
-  margin-left: 50px;
-}
+
 
 .header-donate-block button {
   padding: 17.5px;
@@ -97,10 +95,12 @@ header .img_link{
 }
 
 header ul {
+  padding: 0;
   list-style-type: none;
   display: flex;
   justify-content: center;
   gap: 100px; 
+  margin: 0px 50px;
 }
 
 header a {
@@ -135,21 +135,26 @@ header h2 {
 
 
 .language-switcher {
-  position: absolute;
-  top: 35px;
-  left: 15px;
+  position: relative;
+ 
   display: flex;
   gap: 10px;
   align-items: center;
   margin-left: 20px;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
 }
+
+
 
 .language-switcher a {
   border: 2px solid #2e2a1e;
   border-radius: 10px;
   padding: 10px 15px;
   text-decoration: none;
-  color: #2e2a1e;
+  color: #fdf8f1;
   font-weight: 500;
   font-family: "CoFo Sans";
   font-size: 16px;
@@ -169,6 +174,40 @@ header h2 {
 
 .language-switcher-mobile{
   display: none;
+}
+
+
+.menu {
+  margin-left: 85px;
+}
+  
+.english-locale .menu {
+  margin-left: 65px;
+}
+
+ @media (max-width: 1080px) {
+  .menu {
+  margin-left: 30px;
+  }
+  .english-locale .menu {
+    margin-left: 15px;
+  }
+}
+
+
+.language-switcher-container{
+transform: translateX(50px);
+
+}
+
+.language-switcher-button{
+background-color: transparent;
+border: 0px solid transparent;
+}
+
+
+.language-switcher-img{
+height:45px;
 }
 /*
 Header
@@ -292,6 +331,10 @@ footer {
   padding: 20px;
   text-align: center;
   margin-top: auto;
+
+  display: flex;
+  justify-content: space-between; /* Додає простір між елементами */
+  align-items: center;
 }
 footer p{
   font-size: medium;
@@ -323,16 +366,21 @@ Adaptive design
   }
 
   header .img_link{
-    margin-left: 25px;
+    margin-left: 65px;
   }
 
   header ul {
-  gap: 40px;
+  
+  gap: 50px;
   }
   header img{
     width: auto;
     height: 75px;
     margin-left: 0;
+  }
+
+  header.english-locale img {
+    margin-left: -40px;
   }
   header nav{
     margin-left: 0;
@@ -350,65 +398,6 @@ Adaptive design
 
 
 
-@media only screen and (max-width: 1440px){
-  .language-switcher {
-
-    top: 40px;
-    left: 5px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-left: 10px;
-  }
-
-  .language-switcher a{
-    padding: 5px 10px;
-    font-size: 14px;
-  }
-}
-
-
-@media only screen and (max-width: 1200px){
-  .language-switcher {
-
-    
-    display: flex;
-    top: 45px;
-    left: 0;
-    gap: 10px;
-    align-items: center;
-    margin-left: 5px;
-  }
-
-  .language-switcher a{
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-
-  .logo{
-    transform: translateX(50px);
-  }
-
-}
-
-@media only screen and (max-width: 1100px){
-  .language-switcher {
-    display: flex;
-    gap: 10px;
-    top: 35px;
-    left: 0;
-    align-items: center;
-    margin-left: 5px;
-  }
-
-  .language-switcher a{
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-
-
-  
-}
 
 
 
@@ -417,6 +406,7 @@ Adaptive design
 
 
 @media only screen and (max-width: 768px) {
+
   .logo{
     transform: translateX(0);
   }
@@ -486,6 +476,10 @@ Adaptive design
     color: #fdf8f1;
     background-color: #544c36;
   }
+
+  .language-switcher-container{
+    display: none;
+  }
 }
 
 
@@ -514,8 +508,9 @@ Adaptive design
   header {
     position: static;
   }
- .logo{
-    margin-left: 35px;
+
+  .logo .english-locale{
+    margin-left: -35px;
   }
   .header__icon {
     display: block;
@@ -635,40 +630,8 @@ Adaptive design
 
 
 
-@media only screen and (max-width: 1440px){
-  .language-switcher {
-
-    top: 40px;
-    left: 5px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-left: 10px;
-  }
-
-  .language-switcher a{
-    padding: 5px 10px;
-    font-size: 14px;
-  }
-}
 
 
-@media only screen and (max-width: 1200px){
-  .language-switcher {
-    display: flex;
-    top: 45px;
-    left: 0;
-    gap: 10px;
-    align-items: center;
-    margin-left: 5px;
-  }
-
-  .language-switcher a{
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-
-}
 
 
   .language-switcher{

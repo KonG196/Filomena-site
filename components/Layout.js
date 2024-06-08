@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Header from './Header';
 
 export default function Layout({ children, locale }) {
+  const { locales, asPath } = useRouter();
+
   useEffect(() => {
     const headerIcon = document.getElementById('header__icon');
     const siteCache = document.getElementById('site-cache');
@@ -54,6 +58,11 @@ export default function Layout({ children, locale }) {
     }
   };
 
+  const languageNames = {
+    en: 'Eng',
+    uk: 'Укр',
+  };
+
   const footerText = getFooterText(locale);
 
   return (
@@ -65,7 +74,15 @@ export default function Layout({ children, locale }) {
         </div>
         <div className="site-cache" id="site-cache"></div>
         <footer>
-          <p>{footerText}</p>
+        <p>{footerText}</p>
+          <div className="language-switcher">
+            {locales.map((loc) => (
+              <Link legacyBehavior key={loc} href={asPath} locale={loc}>
+                <a className={locale === loc ? 'active' : ''}>{languageNames[loc]}</a>
+              </Link>
+            ))}
+          </div>
+          
         </footer>
       </div>
     </div>

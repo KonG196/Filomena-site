@@ -49,9 +49,7 @@ export default function Home({paragraphs, locale}) {
         .container h1{
           text-align: center;
         }
-        @media (max-width: 430px) {
-          
-        }
+       
         
       `}</style>
     </div>

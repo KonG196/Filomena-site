@@ -14,6 +14,8 @@ const Header = () => {
     setIsModalOpen(false);
   };
 
+
+
   const headerText = {
     en: {
       home: 'Home',
@@ -30,14 +32,8 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
-      <div className="language-switcher">
-        {locales.map((loc) => (
-          <Link legacyBehavior key={loc} href={asPath} locale={loc}>
-            <a className={locale === loc ? 'active' : ''}>{loc.toUpperCase()}</a>
-          </Link>
-        ))}
-      </div>
+    <header className={`header ${locale === 'en' ? 'english-locale' : ''}`}>
+     
       <a href="#" className="header__icon" id="header__icon"></a>
       <div className={`logo ${locale === 'uk' ? 'uk-logo' : ''}`}>
         <Link legacyBehavior href="/home">
@@ -86,20 +82,22 @@ const Header = () => {
       {/* CSS styles */}
       <style jsx>{`
         .menu {
-          margin-left: -10px;
+          margin-left: 85px;
         }
         .english-locale .menu {
-          margin-left: 0;
+          margin-left: 65px;
         }
 
-        @media (max-width: 768px) {
-          .logo {
-            margin-left: 0; /* зсув логотипу вліво на мобільних пристроях */
-          }
+         @media (max-width: 1080px) {
+          .menu {
+          margin-left: 0px;
+        }
+        .english-locale .menu {
+          margin-left: 15px;
+        }
+         }
 
-          .uk-logo {
-            margin-left: 35px; /* зміна зсуву лого для мобільних пристроях */
-          }
+        
         }
       `}</style>
     </header>

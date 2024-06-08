@@ -37,6 +37,7 @@ export default function News({ recipes, locale }) {
       ))}
       <style jsx>{`
         .recipe-list {
+          justify-content: center;
           display: flex;
           grid-gap: 20px 100px;
           flex-wrap: wrap;
