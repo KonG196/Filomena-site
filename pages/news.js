@@ -7,17 +7,27 @@ export async function getStaticProps({ locale }) {
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
+  // Запит для отримання рецептів
   const res = await client.getEntries({
-    content_type: "recipe",
-    locale
+    content_type: 'recipe',
+    locale,
   });
 
-  // Перевіряємо, чи відображається українська версія
+  // Запит для отримання українських зображень
+  const resUkr = await client.getEntries({
+    content_type: 'recipe',
+    locale: 'uk',
+  });
+
+  // Створення мапи з українськими зображеннями
+  const ukrainianImagesMap = resUkr.items.reduce((map, item) => {
+    map[item.fields.slug] = item.fields.thumbnail;
+    return map;
+  }, {});
+
+  // Заміна зображень в рецептах на українські
   const recipes = res.items.map(item => {
-    // Якщо для поточного рецепту не вказано зображення, але є українське, замінюємо англійське зображення на українське
-    if (!item.fields.thumbnail && item.fields.thumbnailUkr) {
-      item.fields.thumbnail = item.fields.thumbnailUkr;
-    }
+    item.fields.thumbnail = ukrainianImagesMap[item.fields.slug];
     return item;
   });
 

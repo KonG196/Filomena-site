@@ -17,7 +17,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({paragraphs}) {
-  console.log(paragraphs)
+
 
   const sortedParagraphs = [...paragraphs];
   sortedParagraphs.sort((a, b) => {

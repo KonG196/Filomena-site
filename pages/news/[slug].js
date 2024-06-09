@@ -66,6 +66,9 @@ export const getStaticProps = async ({ params, locale }) => {
 }
 
 export default function RecipeDetails({ recipe }) {
+  const router = useRouter();
+  const { locale } = router;
+
   const { thumbnail, title, shortDescr, method, date } = recipe.fields
 
   if (!thumbnail || !thumbnail.fields || !thumbnail.fields.file || !thumbnail.fields.file.details) {

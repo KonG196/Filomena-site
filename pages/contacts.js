@@ -22,7 +22,7 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function Contacts({ contacts, locale }) {
-  console.log(contacts);
+
   return (
     <div className="contacts-list">
       <h1>{locale === 'en' ? 'Contacts' : 'Контакти'}</h1>

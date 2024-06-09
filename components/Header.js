@@ -18,12 +18,14 @@ const Header = () => {
 
   const headerText = {
     en: {
+      title: 'Menu',
       home: 'Home',
       news: 'News',
       contacts: 'Contacts',
       donate: 'Donate'
     },
     uk: {
+      title: 'Меню',
       home: 'Головна',
       news: 'Новини',
       contacts: 'Контакти',
@@ -43,7 +45,7 @@ const Header = () => {
         </Link>
       </div>
       <nav className={`menu ${locale === 'en' ? 'english-locale' : ''}`}>
-        <a href="" className='header-text-mobile'>{headerText[locale].home}</a>
+        <a href="" className='header-text-mobile'>{headerText[locale].title}</a>
         <ul>
           <li>
             <Link legacyBehavior href="/home">

@@ -24,7 +24,7 @@ export async function getStaticProps( {locale} ) {
 }
 
 export default function Home({paragraphs, locale}) {
-  console.log(paragraphs)
+
 
   const sortedParagraphs = [...paragraphs];
   sortedParagraphs.sort((a, b) => {

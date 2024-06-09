@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/news-card.module.css';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 export default function NewsCard({ recipe }) {
   const { title, slug, thumbnail, shortDescr, date } = recipe.fields;
   const [cardWidth, setCardWidth] = useState(360);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const router = useRouter();
+  const { locale } = router;
 
   useEffect(() => {
     if (!thumbnail || !thumbnail.fields || !thumbnail.fields.file || !thumbnail.fields.file.details) {
@@ -43,7 +47,9 @@ export default function NewsCard({ recipe }) {
         <span className={styles.readMore}>
           Читати далі <i className={styles.arrow}>→</i>
         </span>
-        <a href={'/news/' + slug}></a>
+        <Link legacyBehavior href={`/news/${slug}`} locale={locale}>
+          <a></a>
+        </Link>
         <div className={styles.image}>
           <img
             src={'https:' + thumbnailUrl}

@@ -3,8 +3,9 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Header from './Header';
 
-export default function Layout({ children, locale }) {
-  const { locales, asPath } = useRouter();
+export default function Layout({ children }) {
+  const router = useRouter();
+  const { locales, locale, asPath } = router;
 
   useEffect(() => {
     const headerIcon = document.getElementById('header__icon');
@@ -22,7 +23,7 @@ export default function Layout({ children, locale }) {
 
     const sidebarLinks = document.querySelectorAll('.menu a');
 
-    sidebarLinks.forEach(link => {
+    sidebarLinks.forEach((link) => {
       link.addEventListener('click', () => {
         removeSidebar();
       });
@@ -74,7 +75,7 @@ export default function Layout({ children, locale }) {
         </div>
         <div className="site-cache" id="site-cache"></div>
         <footer>
-        <p>{footerText}</p>
+          <p>{footerText}</p>
           <div className="language-switcher">
             {locales.map((loc) => (
               <Link legacyBehavior key={loc} href={asPath} locale={loc}>
@@ -82,7 +83,6 @@ export default function Layout({ children, locale }) {
               </Link>
             ))}
           </div>
-          
         </footer>
       </div>
     </div>

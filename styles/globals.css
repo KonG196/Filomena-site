@@ -4,10 +4,14 @@ body {
   margin: 0;
   font-size: 1.3em;
   min-height: 100vh;
+
+  zoom: 85%;
+
+
 }
 
 .layout {
-  min-height: 100vh;
+  min-height: 118vh;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -594,8 +598,14 @@ Adaptive design
     border: 3px solid #2e2a1e;
     transition: background-color 0.3s, color 0.3s;
   }
+
+
   .with--sidebar nav {
     transform: translateX(-19px);
+  }
+
+   .with--sidebar .english-locale nav {
+    transform: translateX(-29px);
   }
 
   h1{
@@ -644,7 +654,9 @@ Adaptive design
     padding: 10px;
     text-align: center;
     margin-top: auto;
+    display: flex;
   }
+
   footer p{
     font-size: small;
   }
