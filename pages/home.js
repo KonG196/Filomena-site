@@ -35,7 +35,7 @@ export default function Home({paragraphs, locale}) {
 
   return (
     <div className="container">
-      <h1>{locale === 'en' ? 'Philomena' : 'Філомена'}</h1>
+      <h1>{locale === 'en' ? 'Filomena' : 'Філомена'}</h1>
       <main>
         <div className="paragraph-class">
         {sortedParagraphs.map(paragraph => (

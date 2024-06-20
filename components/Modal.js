@@ -5,7 +5,7 @@ const Modal = ({ onClose, isModalOpen, locale }) => {
     en: {
       title: 'You can help us with these details:',
       receiver: 'Receiver',
-      receiverValue: 'Charitable Foundation "GOD\'S CHILDREN"',
+      receiverValue: 'Charitable Foundation "BOZHI DITY"',
       iban: 'IBAN account',
       ibanValue: 'UA873257960000026007300539780',
       edrpou: 'EDRPOU Code',
