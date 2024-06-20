@@ -111,12 +111,14 @@ export default function RecipeDetails({ recipe }) {
 
       <div className={styles.method}>
         <div className={styles.news_descr}>
+          
           <h1>{title}</h1>
+          <h4 className={styles.date}>{date}</h4>
           {documentToReactComponents(method)}
         </div>
       </div>
 
-      <h4 className={styles.date}>{date}</h4>
+      
     </div>
   )
 }
