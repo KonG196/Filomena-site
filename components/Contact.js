@@ -6,7 +6,7 @@ export default function Contact({ contact, locale }) {
   return (
     <div className="contact">
       <div>
-        <h3>{locale === 'en' ? 'Our Charitable Organization' : "Наша Громадська Організація"}:</h3>
+        <h3>{locale === 'en' ? 'Our Charitable Organization' : "Наша Організація"}:</h3>
         <p>{fullName}</p>
       </div>
       <div>
