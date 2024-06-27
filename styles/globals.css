@@ -118,6 +118,7 @@ header nav ul li a {
   text-decoration: none;
   color: #2e2a1e; 
   transition: color 0.3s; 
+  width: 100%;
 
 }
 header nav{
@@ -399,9 +400,6 @@ Adaptive design
 
   
 }
-
-
-
 
 
 

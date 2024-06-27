@@ -69,7 +69,7 @@ export default function RecipeDetails({ recipe }) {
   const router = useRouter();
   const { locale } = router;
 
-  const { thumbnail, title, shortDescr, method, date } = recipe.fields
+  const { thumbnail, title, shortDescr, method, date, media, video1, video2, video3 } = recipe.fields
 
   if (!thumbnail || !thumbnail.fields || !thumbnail.fields.file || !thumbnail.fields.file.details) {
     console.error('Image data is not available', recipe)
@@ -87,6 +87,20 @@ export default function RecipeDetails({ recipe }) {
     width /= 3
     height /= 3
   }
+
+  console.log('Recipe:', recipe)
+  console.log('Video1:', video1)
+
+  const videoHtml1 = video1 && typeof video1 === 'object' && video1.content
+    ? video1.content[0].content[0].value
+    : '';
+    const videoHtml2 = video2 && typeof video2 === 'object' && video2.content
+    ? video2.content[0].content[0].value
+    : '';
+    const videoHtml3 = video3 && typeof video3 === 'object' && video3.content
+    ? video3.content[0].content[0].value
+    : '';
+
 
   return (
     <div className={styles.content_block}>
@@ -111,14 +125,54 @@ export default function RecipeDetails({ recipe }) {
 
       <div className={styles.method}>
         <div className={styles.news_descr}>
-          
           <h1>{title}</h1>
           <h4 className={styles.date}>{date}</h4>
           {documentToReactComponents(method)}
         </div>
       </div>
+      <h2>
+        Фото
+      </h2>
+      {media && media.length > 0 && (
+        <div className={styles.mediaGallery}>
+          {media.map((item, index) => {
+            const { file, title } = item.fields;
+            const mimeType = file.contentType;
+            
+            return (
+              <div key={index} className={styles.mediaItem}>
+                {mimeType.startsWith('image/') && (
+                  <Image
+                    src={`https:${file.url}`}
+                    width={file.details.image.width}
+                    height={file.details.image.height}
+                    alt={title || 'Media Item'}
+                  />
+                )}   
+              </div>
+            );
+          })}
+        </div>
+      )}
+      <h2>
+        Відео
+      </h2>
 
-      
+      {videoHtml1 && (
+        <div className={styles.videoContainer}>
+          <div className={styles.videoWrapper} dangerouslySetInnerHTML={{ __html: videoHtml1 }} />
+        </div>
+      )}
+      {videoHtml2 && (
+        <div className={styles.videoContainer}>
+          <div className={styles.videoWrapper} dangerouslySetInnerHTML={{ __html: videoHtml2 }} />
+        </div>
+      )}
+      {videoHtml3 && (
+        <div className={styles.videoContainer}>
+          <div className={styles.videoWrapper} dangerouslySetInnerHTML={{ __html: videoHtml3 }} />
+        </div>
+      )}
     </div>
   )
 }
