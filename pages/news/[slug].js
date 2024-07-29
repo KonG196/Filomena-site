@@ -152,9 +152,11 @@ export default function RecipeDetails({ recipe }) {
           {documentToReactComponents(method)}
         </div>
       </div>
-      <h2>
-        Фото
-      </h2>
+      {media && (
+        <h2>
+          Фото
+        </h2>
+      )}
       {media && media.length > 0 && (
         <div className={styles.mediaGallery}>
           {media.map((item, index) => {
@@ -176,9 +178,11 @@ export default function RecipeDetails({ recipe }) {
           })}
         </div>
       )}
-      <h2>
-        Відео
-      </h2>
+      {videoHtml1 && (
+        <h2>
+          Відео
+        </h2>
+      )}
 
       {videoHtml1 && (
         <div className={styles.videoContainer}>
