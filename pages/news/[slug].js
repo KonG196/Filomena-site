@@ -88,24 +88,26 @@ export default function RecipeDetails({ recipe }) {
     height /= 3
   }
 
- media.forEach((item) => {
-  const { file } = item.fields;
-  if (file && file.details && file.details.image) {
-    let { width, height } = file.details.image;
+  if (media && media.length > 0) {
+    media.forEach((item) => {
+    const { file } = item.fields;
+    if (file && file.details && file.details.image) {
+      let { width, height } = file.details.image;
 
-    if (width > 900 && width < 1400) {
-      width /= 2;
-      height /= 2;
-    } else if (width > 1400) {
-      width /= 3;
-      height /= 3;
+      if (width > 900 && width < 1400) {
+        width /= 2;
+        height /= 2;
+      } else if (width > 1400) {
+        width /= 3;
+        height /= 3;
+      }
+
+
+      file.details.image.width = width;
+      file.details.image.height = height;
     }
-
-
-    file.details.image.width = width;
-    file.details.image.height = height;
+  });
   }
-});
 
 
   console.log('Recipe:', recipe)
